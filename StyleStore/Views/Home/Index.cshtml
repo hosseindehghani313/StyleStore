@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero text-center">
+    <div class="container">
+        <h1 class="display-3 mb-4">Welcome to Style Store</h1>
+        <p class="lead mb-4">Discover the latest fashion trends and express your unique style</p>
+        <a href="/products" class="btn btn-light btn-lg">Shop Now</a>
+    </div>
+</section>
+
+<section class="featured-categories py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Shop by Category</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="category-card position-relative mb-4">
+                    <img src="/images/women.jpg" class="img-fluid" alt="Women's Fashion">
+                    <div class="category-overlay">
+                        <h3>Women</h3>
+                        <a href="/category/women" class="btn btn-outline-light">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card position-relative mb-4">
+                    <img src="/images/men.jpg" class="img-fluid" alt="Men's Fashion">
+                    <div class="category-overlay">
+                        <h3>Men</h3>
+                        <a href="/category/men" class="btn btn-outline-light">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="category-card position-relative mb-4">
+                    <img src="/images/accessories.jpg" class="img-fluid" alt="Accessories">
+                    <div class="category-overlay">
+                        <h3>Accessories</h3>
+                        <a href="/category/accessories" class="btn btn-outline-light">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="trending py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Trending Now</h2>
+        <div class="row">
+            @foreach (var product in ViewBag.TrendingProducts ?? new List<Product>())
+            {
+                <div class="col-md-3">
+                    <div class="product-card card">
+                        <img src="@product.ImageUrl" class="card-img-top product-image" alt="@product.Name">
+                        <div class="card-body text-center">
+                            <h5 class="product-title">@product.Name</h5>
+                            <p class="product-price">$@product.Price</p>
+                            <button class="btn btn-dark add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="features py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="fas fa-shipping-fast fa-3x mb-3"></i>
+                <h4>Free Shipping</h4>
+                <p>On orders over $50</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-undo fa-3x mb-3"></i>
+                <h4>Easy Returns</h4>
+                <p>30-day return policy</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-headset fa-3x mb-3"></i>
+                <h4>24/7 Support</h4>
+                <p>Always here to help</p>
+            </div>
+        </div>
+    </div>
+</section>
